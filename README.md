@@ -1,1 +1,3 @@
-built by claude for my speaking exams
+#what is this?
+- built by claude for my speaking exams.
+- asks questions from the masterdoc.
