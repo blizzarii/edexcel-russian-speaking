@@ -48,7 +48,7 @@ function themes() {
   clearInterval(tick);
   const names = Object.keys(bank);
   const total = names.reduce((n, k) => n + bank[k].length, 0);
-  app.innerHTML = `<h1>Russian speaking practice</h1>
+  app.innerHTML = `<h1>russian speaking practice</h1>
     <p class="muted">Pick a theme. Answer out loud, then rate yourself.</p>` +
     names.map((n, k) => `<button class="row" data-k="${k}"><span>${esc(n)}</span><span class="muted">${bank[n].length}</span></button>`).join("") +
     `<button class="row" data-k="all"><span>All themes</span><span class="muted">${total}</span></button>`;
