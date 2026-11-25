@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Russian speaking practice</title>
+<style>
+:root{--bg:#f3f5f9;--fg:#1b2230;--muted:#5d677a;--line:#d5dbe6;--card:#fff;--accent:#2b4fd8;--on-accent:#fff;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#12161d;--fg:#e8ecf4;--muted:#9aa5b8;--line:#2b3342;--card:#1a202a;--accent:#7f9bff;--on-accent:#10162b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.5}
+main{max-width:34rem;margin:0 auto;padding:2rem 1.25rem 3rem}
+h1{font-size:1.6rem;margin:0 0 .25rem}
+p{margin:.5rem 0}
+.muted{color:var(--muted)}
+.q{font-size:clamp(1.5rem,5.5vw,2.1rem);line-height:1.3;font-weight:600;margin:1.5rem 0}
+.timer{font-variant-numeric:tabular-nums;color:var(--muted);margin-bottom:1.5rem}
+button{font:inherit;cursor:pointer}
+button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.row,.rates button{display:flex;justify-content:space-between;width:100%;padding:.9rem 1rem;margin-bottom:.5rem;background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:10px;text-align:left}
+.rates{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+.rates button{display:block;margin:0;text-align:center}
+.primary{padding:.85rem 1.4rem;background:var(--accent);color:var(--on-accent);border:0;border-radius:10px;font-weight:600}
+.link{background:none;border:0;color:var(--muted);text-decoration:underline;padding:.8rem .6rem}
+</style>
+</head>
+<body>
+<main id="app"><p class="muted">Loading questions...</p></main>
+<script>
+const app = document.getElementById("app");
+const $ = id => document.getElementById(id);
+let bank = {}, queue = [], retry = [], round = 1, i = 0, tick = null, t0 = 0, theme = "";
+
+const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const shuffle = a => { for (let k = a.length - 1; k > 0; k--) { const j = Math.floor(Math.random() * (k + 1)); [a[k], a[j]] = [a[j], a[k]]; } return a; };
+
+function parse(text) {
+  text.split(/\r?\n/).forEach(line => {
+    line = line.trim();
+    if (!line || line.startsWith("#") || !line.includes("|")) return;
+    const p = line.indexOf("|");
+    const th = line.slice(0, p).trim(), q = line.slice(p + 1).trim();
+    if (th && q) (bank[th] = bank[th] || []).push(q);
+  });
+}
+
+function themes() {
+  clearInterval(tick);
+  const names = Object.keys(bank);
+  const total = names.reduce((n, k) => n + bank[k].length, 0);
+  app.innerHTML = `<h1>Russian speaking practice</h1>
+    <p class="muted">Pick a theme. Answer out loud, then rate yourself.</p>` +
+    names.map((n, k) => `<button class="row" data-k="${k}"><span>${esc(n)}</span><span class="muted">${bank[n].length}</span></button>`).join("") +
+    `<button class="row" data-k="all"><span>All themes</span><span class="muted">${total}</span></button>`;
+  app.querySelectorAll(".row").forEach(b => b.onclick = () => {
+    const k = b.dataset.k;
+    theme = k === "all" ? "All themes" : names[k];
+    round = 1;
+    run(k === "all" ? names.flatMap(n => bank[n]) : bank[names[k]]);
+  });
+}
+
+function run(list) {
+  queue = shuffle([...list]);
+  retry = [];
+  i = 0;
+  ask();
+}
+
+const head = () => `<p class="muted">${esc(theme)}. Round ${round}, question ${i + 1} of ${queue.length}</p>
+  <p class="q" lang="ru">${esc(queue[i])}</p>`;
+
+function ask() {
+  clearInterval(tick);
+  app.innerHTML = head() + `<p class="timer" id="t">0:00</p>
+    <button class="primary" id="done">Done speaking</button>
+    <button class="link" id="quit">Back to themes</button>`;
+  t0 = Date.now();
+  tick = setInterval(() => {
+    const s = Math.floor((Date.now() - t0) / 1000);
+    $("t").textContent = Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0");
+  }, 500);
+  $("done").onclick = rate;
+  $("quit").onclick = themes;
+}
+
+function rate() {
+  clearInterval(tick);
+  const s = Math.floor((Date.now() - t0) / 1000);
+  app.innerHTML = head() + `<p class="timer">You spoke for ${s} seconds.</p>
+    <p>How did it go?</p>
+    <div class="rates">
+      <button data-n="1">1 Needs work</button>
+      <button data-n="2">2 OK</button>
+      <button data-n="3">3 Good</button>
+    </div>`;
+  app.querySelectorAll(".rates button").forEach(b => b.onclick = () => next(+b.dataset.n));
+}
+
+function next(n) {
+  if (n < 3) retry.push(queue[i]);
+  i++;
+  i < queue.length ? ask() : finish();
+}
+
+function finish() {
+  if (retry.length) {
+    app.innerHTML = `<h1>Round ${round} done</h1>
+      <p>${retry.length} to retry.</p>
+      <button class="primary" id="go">Start round ${round + 1}</button>
+      <button class="link" id="quit">Back to themes</button>`;
+    $("go").onclick = () => { round++; run(retry); };
+  } else {
+    app.innerHTML = `<h1>All done</h1>
+      <p>Every question rated 3.</p>
+      <button class="primary" id="quit">Back to themes</button>`;
+  }
+  $("quit").onclick = themes;
+}
+
+fetch("questions.txt")
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+  .then(text => { parse(text); Object.keys(bank).length ? themes() : Promise.reject(); })
+  .catch(() => {
+    app.innerHTML = `<h1>Could not load questions</h1>
+      <p>Check that questions.txt is in the same folder as index.html, and that each line looks like: theme | question.</p>
+      <p class="muted">If you opened this file straight from your computer, browsers block it. Use the GitHub Pages link instead.</p>`;
+  });
+</script>
+</body>
+</html>

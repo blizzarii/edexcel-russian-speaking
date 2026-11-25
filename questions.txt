@@ -1,0 +1,97 @@
+# Format: theme | question   (one per line, lines starting with # are ignored)
+
+Identity and culture | Опиши отношения с твоей семьёй
+Identity and culture | Ты хотел(а) бы жениться/выйти замуж в будущем?
+Identity and culture | Какой ты был(а), когда ты был(а) младше?
+Identity and culture | Что ты любил(а) делать, когда ты был(а) младше?
+Identity and culture | Опиши лучшего друга/ лучшую подругу
+Identity and culture | Опиши свою семью
+Identity and culture | Какие качества нужны, чтобы быть хорошим другом?
+Identity and culture | Что важнее для тебя, семья или друзья?
+Identity and culture | Какие хобби тебе нравятся? Почему?
+Identity and culture | Что ты обычно делаешь в выходные?
+Identity and culture | Что ты будешь делать в эти выходные с семьёй?
+Identity and culture | Что ты любишь делать с друзьями?
+Identity and culture | Опиши знаменитого человека, которого ты уважаешь. Почему он/она тебе нравится?
+Identity and culture | Ты хотел(а) бы встретиться с ним / ней?
+Identity and culture | Опиши свой типичный день.
+Identity and culture | Какую одежду ты любишь носить?
+Identity and culture | Что ты предпочитаешь есть / пить?
+Identity and culture | Ты ел(а) в последнее время в ресторане / кафе?
+Identity and culture | Ты любишь делать покупки? Почему?
+Identity and culture | Что ты купил недавно? Где? Почему?
+Identity and culture | Как ты использовал(а) технологии вчера?
+Identity and culture | У тебя есть социальные сети?
+Identity and culture | Ты мог/ла бы жить без технологий? без мобильника?
+Identity and culture | По-твоему, какие недостатки/риски технологий?
+Identity and culture | Как ты обычно празднуешь Рождество?
+Identity and culture | Что вы с друзьями делали, когда был твой день рождения?
+Identity and culture | Как ты будешь отмечать интересный праздник в этом году?
+Identity and culture | Ты думаешь, праздники важны?
+Identity and culture | Какой твой любимый жанр книги?
+Identity and culture | Что ты читал(а) в последнее время? Это была хорошая книга?
+Identity and culture | Что ты будешь читать на каникулах?
+Identity and culture | Какая музыка тебе нравится и почему?
+Identity and culture | Ты играешь на музыкальном инструменте?
+Identity and culture | Ты занимаешься спортом?
+Identity and culture | Какой твой любимый жанр фильма?
+Identity and culture | Какие передачи тебе нравятся?
+Identity and culture | Что ты смотрел(а) вчера?
+
+Local area, holiday and travel | Что ты обычно делаешь на каникулах?
+Local area, holiday and travel | Ты предпочитаешь ездить на каникулы с друзьями или с семьей?
+Local area, holiday and travel | Опиши идеальные каникулы
+Local area, holiday and travel | Куда ты ездил(а) на каникулы в прошлом году?
+Local area, holiday and travel | Где ты жил(а)?
+Local area, holiday and travel | Что ты делал(а) на каникулах?
+Local area, holiday and travel | Какая была погода?
+Local area, holiday and travel | Что ты ел(а) и где?
+Local area, holiday and travel | Тебе понравились эти каникулы? Почему?
+Local area, holiday and travel | Где лучше проводить каникулы, на море / в городе / в деревне? Почему?
+Local area, holiday and travel | Куда ты поедешь на каникулы в этом году?
+Local area, holiday and travel | Где бы ты хотел жить на каникулах? Почему?
+Local area, holiday and travel | Ты предпочитаешь активные или спокойные каникулы?
+Local area, holiday and travel | Ты предпочитаешь ездить на каникулы на самолёте или на поезде?
+Local area, holiday and travel | Какая погода обычно в районе, где ты живёшь?
+Local area, holiday and travel | Опиши город, где ты живёшь.
+Local area, holiday and travel | Лучше жить в городе или в деревне? Почему?
+Local area, holiday and travel | Где ты хотел(а) бы жить в будущем?
+Local area, holiday and travel | Что можно делать подростку в твоём районе?
+Local area, holiday and travel | Что ты делал в твоём районе в прошлые выходные?
+Local area, holiday and travel | Что бы ты делал в твоём городе, если бы ты был туристом?
+
+School | Какая твоя школа?
+School | Что есть в твоей школе?
+School | Опиши типичный день в школе.
+School | Что ты изучал(а) в школе вчера?
+School | Что ты будешь изучать в школе завтра?
+School | Какой твой любимый предмет? Почему?
+School | Какой предмет ты не любишь? Почему?
+School | Опиши учителя / учительницу.
+School | Ты носишь школьную форму? Опиши её.
+School | Что ты хотел(а) бы носить в школе?
+School | Какие правила есть в твоей школе?
+School | Какая самая серьёзная проблема в школе?
+School | Какой был твой самый большой успех в школе?
+School | Как ты будешь отмечать конец экзаменов?
+School | Опиши последнюю поездку со школой
+School | В какой поездке со школой ты бы хотел участвовать и почему?
+School | Опиши кружки в твоей школе
+School | Ты ездил в другую школу по обмену?
+
+Future aspirations, study and work | Ты думаешь, важно говорить на другом языке?
+Future aspirations, study and work | Что ты думаешь о русском языке?
+Future aspirations, study and work | Как ты думаешь, язык полезнее для каникул или для работы?
+Future aspirations, study and work | Ты использовал язык, который ты учишь, вне класса?
+Future aspirations, study and work | Какие у тебя планы на будущее?
+Future aspirations, study and work | Ты хочешь поступить в университет? Почему/почему нет? Что ты будешь изучать?
+Future aspirations, study and work | У тебя была рабочая практика? Где? Что ты делал(а)?
+Future aspirations, study and work | Тебе больше нравилась практика или школа?
+Future aspirations, study and work | У тебя сейчас есть работа? Ты получаешь деньги?
+Future aspirations, study and work | Кем ты хочешь быть в будущем и почему?
+Future aspirations, study and work | Кем ты бы не хотел работать и почему?
+
+International and global dimension | Ты был(а) на спортивном соревновании или матче? Опиши его.
+International and global dimension | Ты предпочитаешь смотреть спорт на стадионе или по телевизору?
+International and global dimension | Ты бы хотел(а) посещать музыкальный фестиваль? Почему?
+International and global dimension | Ты был(а) на концерте? Опиши его.
